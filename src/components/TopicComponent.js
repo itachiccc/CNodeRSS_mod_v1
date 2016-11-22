@@ -6,6 +6,7 @@ import { fromNow } from '../helpers/dateTimeHelper';
 import { getTabs, getTabName } from '../helpers/tabHelper';
 import { UserPictureComponent } from './common/CommComponents';
 import { getHistory } from '../configureStore';
+
 class TopicComponent extends Component {
     constructor(props) {
         super(props);
@@ -86,7 +87,6 @@ export class ReplyListComponent extends Component {
             <div  className="replyList">
                 <div>{replies.length}个回复</div>
                 <ul className="reply-list">
-
                     {children}
                 </ul>
             </div>

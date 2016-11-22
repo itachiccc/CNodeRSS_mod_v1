@@ -37,7 +37,7 @@ class TopicListComponent extends Component {
             children = (<div className="fetching"></div>);
         } else {
             let items = this.props.list.map((item, index) => {
-                return <TopicItemComponent key={ index } { ...item } currentTab={ this.props.tab } />
+                return <TopicItemComponent key={index} {...item} currentTab={this.props.tab}/>
             });
             children = (
                 <ul data-flex="dir:top main:justify" className="topic-list">
@@ -133,13 +133,13 @@ export class TopicItemComponent extends Component {
         let { id, top, tab, good, title, currentTab, visit_count, reply_count, last_reply_at, author} = this.props;
         let tabElement;
         if (currentTab == 'all' || top || good) {
-            tabElement = <span className={ top || good || tab === currentTab ? 'green' : 'normal'}>{ this.getTabName() }</span>;
+            tabElement = <span className={ top || good || tab === currentTab ? 'green' : 'normal'}>{this.getTabName()}</span>;
         }
         return (
             <li>
                 <UserPictureComponent user={ author } />
                 { tabElement }
-                <Link title={ title } to={ `/topic/${tab}/${id}` }> {title}</Link>
+                <Link title={ title } to={ `/topic/${tab}/${id}` }>{ title }</Link>
                 <span className="count">
                     <span>{ reply_count }</span><span>/</span><span>{ visit_count }</span>
                 </span>

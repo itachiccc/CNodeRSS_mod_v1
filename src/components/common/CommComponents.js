@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { getTopics, goBackTopicList } from '../../actions/topicActions';
+import { connect } from 'react-redux';
+import { getUserByName } from '../../actions/topicActions';
 import { Link } from 'react-router';
 import { fromNow } from '../../helpers/dateTimeHelper';
 
@@ -47,14 +48,21 @@ export class ReplyTimeComponent extends Component {
  * 用户头像组件
  */
 export class UserPictureComponent extends Component {
+    constructor(props) {
+        super(props);
+    }
     shouldComponentUpdate(nextProps, nextState) {
         return nextProps.avatar_url !== this.props.avatar_url;
+    }
+
+    headleClick(loginname) {
+        console.log(loginname);
     }
 
     render() {
         let {avatar_url, loginname} = this.props.user;
         return (
-            <a href="javascript:;" className="userLink">
+            <a href="javascript:;" className="userLink" onClick={this.headleClick.bind(this, loginname)}>
                 <div style={{ backgroundImage: `url(${avatar_url})` }} ></div>
             </a>
         );
@@ -71,3 +79,5 @@ export class LoadingComponent extends Component {
         )
     }
 }
+
+export default connect(root => root.userReducer)(UserPictureComponent);

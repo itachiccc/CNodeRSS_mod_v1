@@ -20,7 +20,7 @@ export default class Routers extends Component {
             <Router history={this.props.history}>
                 <Route path="/" component={Layout}>
                     <IndexRoute component={TopicListComponent}  onLeave={this.topicListOnLeave} onEnter={e=> this.topicListOnEnter(e)} />
-                    <Route path='topic/:tab/:id' component={TopicComponent} />
+                    <Route path='topic/:tab/:id' component={ TopicComponent } />
                 </Route>
             </Router>
         )
