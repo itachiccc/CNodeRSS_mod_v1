@@ -87,7 +87,6 @@ export class TopicListHeaderComponent extends Component {
      * 判断组件是否需要重新加载，以提升性能
      */
     shouldComponentUpdate(nextProps, nextState) {
-        console.log(this.props.tab);
         return this.props.tab !== nextProps.tab;//防止重复render
     }
 
